@@ -18,7 +18,7 @@
 #
 
 users = nil
-shares = node['shares']
+shares = node['samba']['shares']
 
 unless node["samba"]["passdb_backend"] =~ /^ldapsam/
   users = search("users", "*:*")
