@@ -16,9 +16,9 @@
   dns proxy = <%= node["samba"]["dns_proxy"] %>
 
 #============================ Share Definitions ==============================
-<% @shares.each do |share,option| -%>
+<% @shares.each do |share,options| -%>
 [<%= share %>]
-  <% option.each do |o,v| -%>
+  <% options.each do |o,v| -%>
   <%= o %> = <%= v.respond_to?(:join) ? v.join(',') : v %>
   <% end -%>
 

@@ -18,15 +18,7 @@
 #
 
 users = nil
-shares = data_bag_item("samba", "shares")
-
-shares["shares"].each do |k,v|
-  if v.has_key?("path")
-    directory v["path"] do
-      recursive true
-    end
-  end
-end
+shares = node['shares']
 
 unless node["samba"]["passdb_backend"] =~ /^ldapsam/
   users = search("users", "*:*")
