@@ -49,7 +49,7 @@ template node["samba"]["config"] do
   owner "root"
   group "root"
   mode 00644
-  variables :shares => shares["shares"]
+  variables :shares => shares
   svcs.each do |s|
     notifies :restart, "service[#{s}]"
   end
